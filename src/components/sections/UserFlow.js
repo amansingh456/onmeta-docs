@@ -34,7 +34,7 @@ const APIFlows = ({ glowEffect }) => {
               }`}
             >
               <Code size={20} />
-              <span>On-Ramp Flow</span>
+              <span>OnRamp Flow</span>
             </button>
             
             <button
@@ -46,7 +46,7 @@ const APIFlows = ({ glowEffect }) => {
               }`}
             >
               <Code size={20} />
-              <span>Off-Ramp Flow</span>
+              <span>OffRamp Flow</span>
             </button>
           </div>
         </div>
