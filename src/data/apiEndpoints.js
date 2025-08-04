@@ -12,7 +12,7 @@ export const apiEndpoints = {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        "User-Agent": "OnMeta-Client/1.0",
+        "x-api-key":"YOUR_API_KEY"
       },
       requestBody: {
         email: "user@example.com",
