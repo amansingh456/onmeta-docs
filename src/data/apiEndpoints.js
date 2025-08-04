@@ -424,6 +424,28 @@ export const apiEndpoints = {
       },
     },
 
+     // get chain wise limits
+    {
+      id: "chain-wise-limits",
+      method: "GET",
+      path: "/v1/orders/chain_limits",
+      title: "Get Chain Wise Limits",
+      description: "Get chain wise limits",
+      required: [""],
+      optional: ["remember"],
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "YOUR_API_KEY",
+      },
+      requestBody: "",
+      requestBodyTypes: "",
+      response: {
+        success: true,
+        data: [{}],
+        error: {},
+      },
+    },
+
     // create order onramp
     {
       id: "create-order-onramp",
@@ -581,28 +603,6 @@ export const apiEndpoints = {
           },
           orderId: "6890c8c1b59b98cfb19a7b8f",
         },
-        error: {},
-      },
-    },
-
-    // get chain wise limits
-    {
-      id: "chain-wise-limits",
-      method: "GET",
-      path: "/v1/orders/chain_limits",
-      title: "Get Chain Wise Limits",
-      description: "Get chain wise limits",
-      required: [""],
-      optional: ["remember"],
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": "YOUR_API_KEY",
-      },
-      requestBody: "",
-      requestBodyTypes: "",
-      response: {
-        success: true,
-        data: [{}],
         error: {},
       },
     },
