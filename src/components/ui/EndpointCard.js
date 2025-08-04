@@ -178,17 +178,7 @@ const EndpointCard = ({
                 >
                   <div className="flex items-center justify-between">
                     <pre
-                      className={`text-sm overflow-x-auto font-mono ${
-                        endpoint.method === "GET"
-                          ? "text-green-400"
-                          : endpoint.method === "POST"
-                          ? "text-yellow-400"
-                          : endpoint.method === "PUT"
-                          ? "text-blue-400"
-                          : endpoint.method === "DELETE"
-                          ? "text-red-400"
-                          : "text-green-400"
-                      }`}
+                      className={`text-sm overflow-x-auto font-mono text-white/80`}
                     >
                       <code>
                         {JSON.stringify(endpoint.headers || {}, null, 2)}
@@ -234,17 +224,7 @@ const EndpointCard = ({
                 >
                   <div className="flex items-center justify-between">
                     <pre
-                      className={`text-sm overflow-x-auto font-mono ${
-                        endpoint.method === "GET"
-                          ? "text-green-400"
-                          : endpoint.method === "POST"
-                          ? "text-yellow-400"
-                          : endpoint.method === "PUT"
-                          ? "text-blue-400"
-                          : endpoint.method === "DELETE"
-                          ? "text-red-400"
-                          : "text-green-400"
-                      }`}
+                      className={`text-sm overflow-x-auto font-mono text-white/80`}
                     >
                       <code>{JSON.stringify(endpoint.response, null, 2)}</code>
                     </pre>
@@ -290,17 +270,7 @@ const EndpointCard = ({
                     <div className="flex-1 overflow-x-auto">
                       {endpoint.requestBody || endpoint.queryParams ? (
                         <pre
-                          className={`text-sm font-mono whitespace-pre-wrap ${
-                            endpoint.method === "GET"
-                              ? "text-green-400"
-                              : endpoint.method === "POST"
-                              ? "text-yellow-400"
-                              : endpoint.method === "PUT"
-                              ? "text-blue-400"
-                              : endpoint.method === "DELETE"
-                              ? "text-red-400"
-                              : "text-green-400"
-                          }`}
+                          className={`text-sm font-mono whitespace-pre-wrap text-white/80`}
                         >
                           {formatRequestWithTypes(
                             endpoint.requestBody || endpoint.queryParams,
@@ -309,13 +279,22 @@ const EndpointCard = ({
                           )
                             .split("\n")
                             .map((line, index) => {
-                              // Check if line contains type annotation
                               if (line.includes("//")) {
                                 const [jsonPart, typePart] = line.split("//");
                                 return (
                                   <div key={index}>
                                     <span>{jsonPart}</span>
-                                    <span className="text-gray-400 text-xs">
+                                    <span className={`${
+                    endpoint.method === "GET"
+                      ? "text-green-700"
+                      : endpoint.method === "POST"
+                      ? "text-yellow-700"
+                      : endpoint.method === "PUT"
+                      ? "text-blue-700"
+                      : endpoint.method === "DELETE"
+                      ? "text-red-700"
+                      : "text-green-700"
+                  } text-xs`}>
                                       // {typePart.trim()}
                                     </span>
                                   </div>
@@ -326,17 +305,7 @@ const EndpointCard = ({
                         </pre>
                       ) : (
                         <pre
-                          className={`text-sm font-mono ${
-                            endpoint.method === "GET"
-                              ? "text-green-400"
-                              : endpoint.method === "POST"
-                              ? "text-yellow-400"
-                              : endpoint.method === "PUT"
-                              ? "text-blue-400"
-                              : endpoint.method === "DELETE"
-                              ? "text-red-400"
-                              : "text-green-400"
-                          }`}
+                          className={`text-sm font-mono text-white/80`}
                         >
                           <code>No request body required</code>
                         </pre>
@@ -369,23 +338,13 @@ const EndpointCard = ({
                   </div>
                 </div>
               )}
-              
+
               {activeTabForEndpoint === "cURL" && (
                 <div className="bg-black/80 rounded-2xl p-6 border-2 border-white/10">
                   <pre
-                    className={`text-sm overflow-x-auto font-mono ${
-                      endpoint.method === "GET"
-                        ? "text-green-400"
-                        : endpoint.method === "POST"
-                        ? "text-yellow-400"
-                        : endpoint.method === "PUT"
-                        ? "text-blue-400"
-                        : endpoint.method === "DELETE"
-                        ? "text-red-400"
-                        : "text-green-400"
-                    }`}
+                    className={`text-sm overflow-x-auto font-mono text-white/80`}
                   >
-                    <code>{`curl -X ${endpoint.method} "https://api.onmeta.in${
+                    <code>{`curl -X ${endpoint.method} "{BASE_URL}${
                       endpoint.path
                     }" \\
 ${generateHeadersString(endpoint.headers)}${
