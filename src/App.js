@@ -1,21 +1,20 @@
 // src/App.js
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Navigation from './components/common/Navigation';
 import Sidebar from './components/common/Sidebar';
-import Introduction from './components/sections/Introduction';
-import APIFlows from './components/sections/APIFlows';
+import Home from './components/sections/Home';
+import APIFlows from './components/sections/UserFlow';
 import OnRamp from './components/sections/OnRamp';
 import OffRamp from './components/sections/OffRamp';
 import Webhooks from './components/sections/Webhooks';
 import ErrorCodes from './components/sections/ErrorCodes';
-import SDK from './components/sections/SDK';
 import { useMouseTracking } from './components/hooks/useMouseTracking';
 import { sections } from './data/sections';
+import Prerequesite from './components/sections/Prerequesite';
+import Intro from './components/sections/Intro';
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(true);
-  const [activeSection, setActiveSection] = useState('introduction');
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [activeSection, setActiveSection] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedEndpoints, setExpandedEndpoints] = useState({});
   const [activeTab, setActiveTab] = useState({});
@@ -48,12 +47,17 @@ const App = () => {
       activeTab,
       toggleEndpoint,
       setActiveTabForEndpoint,
-      copyToClipboard
+      copyToClipboard,
+      setActiveSection
     };
 
     switch (activeSection) {
-      case 'introduction':
-        return <Introduction {...commonProps} />;
+      case 'home':
+        return <Home {...commonProps} />;
+        case 'intro':
+        return <Intro {...commonProps} />;
+        case 'pre':
+        return <Prerequesite {...commonProps} />;
       case 'flows':
         return <APIFlows {...commonProps} />;
       case 'onramp':
@@ -64,23 +68,16 @@ const App = () => {
         return <Webhooks {...commonProps} />;
       case 'errors':
         return <ErrorCodes {...commonProps} />;
-      case 'sdk':
-        return <SDK {...commonProps} />;
       default:
-        return <Introduction {...commonProps} />;
+        return <Home {...commonProps} />;
     }
   };
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       <Navigation
-        sections={sections}
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        sidebarOpen={sidebarOpen}
-        setSidebarOpen={setSidebarOpen}
       />
 
       <div className="flex pt-20">
@@ -88,10 +85,9 @@ const App = () => {
           sections={sections}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
-          sidebarOpen={sidebarOpen}
         />
 
-        <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-80' : 'ml-0'}`}>
+        <div className={`flex-1 ml-80 transition-all duration-300`}>
           <div className="max-w-6xl mx-auto p-8" ref={containerRef}>
             {renderActiveSection()}
           </div>

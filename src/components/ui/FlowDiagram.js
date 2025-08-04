@@ -1,4 +1,3 @@
-import React from 'react';
 
 const FlowDiagram = ({ steps, activeStage, glowEffect }) => (
   <div className="relative overflow-hidden rounded-3xl bg-black border-2 border-white/10 p-12 shadow-2xl">
@@ -23,15 +22,7 @@ const FlowDiagram = ({ steps, activeStage, glowEffect }) => (
         />
       ))}
     </div>
-
-    <h3 className="text-4xl font-bold mb-12 text-center text-white relative z-10">
-      <span className="inline-block animate-pulse">⚡</span>
-      <span className="mx-4 bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
-        OnRamp API Flow
-      </span>
-      <span className="inline-block animate-pulse">⚡</span>
-    </h3>
-    
+  
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
       {steps.map((step, index) => {
         const Icon = step.icon;

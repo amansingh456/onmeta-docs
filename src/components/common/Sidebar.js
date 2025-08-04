@@ -1,10 +1,9 @@
-import React from 'react';
 
-const Sidebar = ({ sections, activeSection, setActiveSection, sidebarOpen }) => {
+const Sidebar = ({ sections, activeSection, setActiveSection }) => {
   return (
-    <div className={`fixed left-0 top-20 h-[calc(100vh-5rem)] w-80 transform transition-transform duration-300 z-40 ${
-      sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-    } bg-black border-r-2 border-white/10 overflow-y-auto relative`}>
+    <div className={`fixed left-0 h-[calc(100vh-5rem)] w-80 transform transition-transform duration-300 z-40 ${
+      true ? 'translate-x-0' : '-translate-x-full'
+    } bg-black border-r-2 border-white/15 fixed`}>
       
       {/* Animated background */}
       <div className="absolute inset-0 opacity-30">
@@ -32,12 +31,7 @@ const Sidebar = ({ sections, activeSection, setActiveSection, sidebarOpen }) => 
         ))}
       </div>
 
-      <div className="p-8 relative z-10">
-        <div className="mb-8">
-          <h3 className="text-sm font-bold text-white/60 uppercase tracking-wider mb-4">Navigation</h3>
-          <div className="w-full h-1 bg-gradient-to-r from-green-400 via-white to-green-400 rounded-full animate-pulse"></div>
-        </div>
-        
+      <div className="p-8 relative z-10">  
         <nav className="space-y-3">
           {sections.map((section, index) => (
             <button
@@ -75,27 +69,6 @@ const Sidebar = ({ sections, activeSection, setActiveSection, sidebarOpen }) => 
             </button>
           ))}
         </nav>
-
-        {/* Sidebar bottom decoration */}
-        <div className="mt-12 p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-green-400/5 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-green-400/10 to-transparent animate-pulse"></div>
-          <div className="relative z-10">
-            <div className="flex items-center space-x-3 mb-3">
-              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-white font-bold text-sm">API Status</span>
-            </div>
-            <p className="text-green-400 text-xs font-mono">All systems operational</p>
-            <div className="mt-3 flex space-x-1">
-              {[...Array(10)].map((_, i) => (
-                <div 
-                  key={i} 
-                  className="w-1 h-4 bg-green-400 rounded-full animate-pulse"
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );
