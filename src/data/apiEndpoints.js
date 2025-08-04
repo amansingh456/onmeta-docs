@@ -3,20 +3,29 @@ export const apiEndpoints = {
     {
       id: 'login',
       method: 'POST',
-      path: '/api/customer/login',
+      path: '/v1/user/login',
       title: 'Customer Login',
       description: 'Authenticate user and get access token',
-      required: ['email', 'password'],
+      required: ['email'],
       optional: ['remember'],
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'User-Agent': 'OnMeta-Client/1.0'
+      },
       requestBody: {
         email: 'user@example.com',
-        password: 'password123',
-        remember: true
+      },
+      requestBodyTypes: {
+        email: 'string',
       },
       response: {
         success: true,
-        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
-        user: { id: 123, email: 'user@example.com' }
+        data:{
+          accessToken:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9....",
+          refreshToken:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...."
+        },
+        error: {},
       }
     },
     {
@@ -26,12 +35,24 @@ export const apiEndpoints = {
       title: 'Get OnRamp Quote',
       description: 'Fetch conversion rates for fiat to crypto',
       required: ['fiatAmount', 'fiatCurrency', 'cryptoSymbol', 'chainId'],
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer YOUR_TOKEN',
+        'Accept': 'application/json',
+        'X-API-Version': 'v1'
+      },
       requestBody: null,
       queryParams: {
         fiatAmount: 100,
         fiatCurrency: 'INR',
         cryptoSymbol: 'MATIC',
         chainId: 137
+      },
+      queryParamsTypes: {
+        fiatAmount: 'number',
+        fiatCurrency: 'string',
+        cryptoSymbol: 'string',
+        chainId: 'number'
       },
       response: {
         success: true,
@@ -53,6 +74,12 @@ export const apiEndpoints = {
       title: 'Get OffRamp Quote',
       description: 'Fetch conversion rates for crypto to fiat',
       required: ['cryptoAmount', 'cryptoSymbol', 'fiatCurrency', 'chainId'],
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer YOUR_TOKEN',
+        'Accept': 'application/json',
+        'X-API-Version': 'v1'
+      },
       response: {
         success: true,
         data: {
