@@ -9,7 +9,6 @@ const Sidebar = ({ sections, activeSection, setActiveSection }) => {
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-400 to-transparent animate-pulse"></div>
         <div className="absolute top-1/3 right-0 w-1 h-32 bg-gradient-to-b from-transparent via-green-400 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
       {/* Floating orbs */}
@@ -37,7 +36,7 @@ const Sidebar = ({ sections, activeSection, setActiveSection }) => {
             <button
               key={section.id}
               onClick={() => setActiveSection(section.id)}
-              className={`w-full text-left px-6 py-4 rounded-xl text-sm font-bold transition-all duration-500 flex items-center space-x-4 relative overflow-hidden group ${
+              className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all duration-500 flex items-center space-x-4 relative overflow-hidden group ${
                 activeSection === section.id
                   ? 'bg-gradient-to-r from-green-400/20 to-white/10 text-white shadow-2xl transform scale-105 border-2 border-green-400/50'
                   : 'text-white/60 hover:text-white hover:bg-white/10 border border-white/10 hover:border-green-400/30 hover:shadow-lg hover:shadow-green-400/10'

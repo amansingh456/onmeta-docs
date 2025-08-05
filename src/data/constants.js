@@ -31,17 +31,3 @@ export const errorCodes = [
   { code: 500, title: 'Server Error', desc: 'Internal server error', color: '#ff0088' }
 ];
 
-export const webhookEvents = {
-  onramp: [
-    'order.created',
-    'order.payment.pending',
-    'order.payment.success',
-    'order.completed'
-  ],
-  offramp: [
-    'offramp.order.created',
-    'offramp.crypto.received',
-    'offramp.fiat.transferred',
-    'offramp.completed'
-  ]
-};
