@@ -6,7 +6,7 @@ const Intro = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowImages(true);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -128,6 +128,15 @@ const Intro = () => {
                     />
                     <img
                       src="/phpPeso.webp"
+                      alt="phpPeso"
+                      className="w-[30%] h-auto rounded-lg shadow-lg opacity-0"
+                      style={{
+                        animation: "fadeIn 0.8s ease-in-out 0.4s forwards",
+                      }}
+                    />
+
+                    <img
+                      src="/idr.jpg"
                       alt="phpPeso"
                       className="w-[30%] h-auto rounded-lg shadow-lg opacity-0"
                       style={{
