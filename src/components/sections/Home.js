@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Zap, Code, Coins, CreditCard, Shield, Sparkles } from 'lucide-react';
+import { Zap, Code,} from 'lucide-react';
 import { useFloatingElements } from '../hooks/useFloatingElements';
 
 const Introduction = ({ setActiveSection }) => {

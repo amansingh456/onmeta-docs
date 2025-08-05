@@ -7,11 +7,11 @@ import APIFlows from './components/sections/UserFlow';
 import OnRamp from './components/sections/OnRamp';
 import OffRamp from './components/sections/OffRamp';
 import Webhooks from './components/sections/Webhooks';
-import ErrorCodes from './components/sections/ErrorCodes';
 import { useMouseTracking } from './components/hooks/useMouseTracking';
 import { sections } from './data/sections';
 import Prerequesite from './components/sections/Prerequesite';
 import Intro from './components/sections/Intro';
+import Kyc from './components/sections/Kyc';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -64,10 +64,10 @@ const App = () => {
         return <OnRamp {...commonProps} />;
       case 'offramp':
         return <OffRamp {...commonProps} />;
+        case 'kyc':
+          return <Kyc {...commonProps}/>
       case 'webhooks':
         return <Webhooks {...commonProps} />;
-      case 'errors':
-        return <ErrorCodes {...commonProps} />;
       default:
         return <Home {...commonProps} />;
     }

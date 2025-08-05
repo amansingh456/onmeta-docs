@@ -1,52 +1,67 @@
-import React from 'react';
-import { Activity, Database } from 'lucide-react';
-import { webhookEvents } from '../../data/constants';
+import { useState } from "react";
+import { Code } from 'lucide-react';
+import OnrampWeb from "../ui/OnrampWebhook";
+import OfframpWeb from "../ui/OfframpWebhook";
 
-const Webhooks = () => {
+const Webhooks = ({
+  expandedEndpoints,
+  activeTab,
+  toggleEndpoint,
+  setActiveTabForEndpoint,
+  copyToClipboard,
+}) => {
+   const [activeFlow, setActiveFlow] = useState('onRamp');
   return (
-    <div className="space-y-12">
-      <div className="text-center">
-        <h1 className="text-6xl font-black mb-6 text-white">
-          Webhook Events
-        </h1>
-        <p className="text-2xl text-white/70">
+    <div className="space-y-6">
+      <div className="flex-1">
+        <p className="text-2xl text-white/80">
           Real-time notifications for transaction updates
         </p>
       </div>
-      
-      <div className="grid md:grid-cols-2 gap-8">
-        <div className="p-8 bg-black rounded-3xl border-2 border-white/10 hover:border-green-400/30 transition-all duration-500 hover:shadow-2xl">
-          <h3 className="text-2xl font-bold mb-6 text-white flex items-center space-x-3">
-            <Activity className="text-green-400 animate-pulse" size={24} />
-            <span>OnRamp Events</span>
-          </h3>
-          <ul className="space-y-4 text-white/80">
-            {webhookEvents.onramp.map(event => (
-              <li key={event} className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-green-400/20 transition-colors">
-                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                <code className="font-mono text-lg">{event}</code>
-              </li>
-            ))}
-          </ul>
-        </div>
-        
-        <div className="p-8 bg-black rounded-3xl border-2 border-white/10 hover:border-green-400/30 transition-all duration-500 hover:shadow-2xl">
-          <h3 className="text-2xl font-bold mb-6 text-white flex items-center space-x-3">
-            <Database className="text-white animate-pulse" size={24} />
-            <span>OffRamp Events</span>
-          </h3>
-          <ul className="space-y-4 text-white/80">
-            {webhookEvents.offramp.map(event => (
-              <li key={event} className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-green-400/20 transition-colors">
-                <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                <code className="font-mono text-lg">{event}</code>
-              </li>
-            ))}
-          </ul>
+
+      <div className="flex">
+        <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-white/10">
+          <div 
+            className={`absolute top-1 bottom-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl shadow-lg transition-all duration-500 ease-out ${
+              activeFlow === "onRamp" 
+                ? "left-1 right-1/2" 
+                : "left-1/2 right-1"
+            }`}
+          />
+          
+          {/* Button Options */}
+          <div className="relative flex">
+            <button
+              onClick={() => setActiveFlow("onRamp")}
+              className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
+                activeFlow === "onRamp"
+                  ? "text-black"
+                  : "text-white/70 hover:text-white"
+              }`}
+            >
+              <Code size={20} />
+              <span>OnRamp</span>
+            </button>
+            
+            <button
+              onClick={() => setActiveFlow("offRamp")}
+              className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
+                activeFlow === "offRamp"
+                  ? "text-black"
+                  : "text-white/70 hover:text-white"
+              }`}
+            >
+              <Code size={20} />
+              <span>OffRamp</span>
+            </button>
+          </div>
         </div>
       </div>
+
+     {activeFlow==="onRamp" &&  <OnrampWeb expandedEndpoints={expandedEndpoints} activeTab={activeTab} toggleEndpoint={toggleEndpoint} setActiveTabForEndpoint={setActiveTabForEndpoint} />}         
+    {activeFlow==="offRamp" &&  <OfframpWeb expandedEndpoints={expandedEndpoints} activeTab={activeTab} toggleEndpoint={toggleEndpoint} setActiveTabForEndpoint={setActiveTabForEndpoint} />}         
     </div>
   );
 };
 
-export default Webhooks
+export default Webhooks;

@@ -284,17 +284,19 @@ const EndpointCard = ({
                                 return (
                                   <div key={index}>
                                     <span>{jsonPart}</span>
-                                    <span className={`${
-                    endpoint.method === "GET"
-                      ? "text-green-700"
-                      : endpoint.method === "POST"
-                      ? "text-yellow-700"
-                      : endpoint.method === "PUT"
-                      ? "text-blue-700"
-                      : endpoint.method === "DELETE"
-                      ? "text-red-700"
-                      : "text-green-700"
-                  } text-xs`}>
+                                    <span
+                                      className={`${
+                                        endpoint.method === "GET"
+                                          ? "text-green-700"
+                                          : endpoint.method === "POST"
+                                          ? "text-yellow-700"
+                                          : endpoint.method === "PUT"
+                                          ? "text-blue-700"
+                                          : endpoint.method === "DELETE"
+                                          ? "text-red-700"
+                                          : "text-green-700"
+                                      } text-xs`}
+                                    >
                                       // {typePart.trim()}
                                     </span>
                                   </div>
@@ -304,9 +306,7 @@ const EndpointCard = ({
                             })}
                         </pre>
                       ) : (
-                        <pre
-                          className={`text-sm font-mono text-white/80`}
-                        >
+                        <pre className={`text-sm font-mono text-white/80`}>
                           <code>No request body required</code>
                         </pre>
                       )}
@@ -344,18 +344,36 @@ const EndpointCard = ({
                   <pre
                     className={`text-sm overflow-x-auto font-mono text-white/80`}
                   >
-                    <code>{`curl -X ${endpoint.method} "{BASE_URL}${
-                      endpoint.path
-                    }" \\
+                    <code>
+                      {endpoint.id === "kyc-upload"
+                        ? `curl --location '{{BASE_URL}}/v1/users/upload/kyc' \\
+--header 'Authorization: Bearer YOUR_TOKEN' \\
+--header 'x-api-key: YOUR_API_KEY' \\
+--form 'panNumber="encryptedString"' \\
+--form 'email="user@example.com"' \\
+--form 'firstName="encryptedString"' \\
+--form 'lastName="encryptedString"' \\
+--form 'aadharNumber="encryptedString"' \\
+--form 'selfie=@"/path/to/file"' \\
+--form 'aadharFront=@"/path/to/file"' \\
+--form 'aadharBack=@"/path/to/file"' \\
+--form 'panFront=@"/path/to/file"' \\
+--form 'panBack=@"/path/to/file"' \\
+--form 'incomeRange="< 10 L "' \\
+--form 'profession="Teacher"'`
+                        : `curl -X ${endpoint.method} "{{BASE_URL}}${
+                            endpoint.path
+                          }" \\
 ${generateHeadersString(endpoint.headers)}${
-                      endpoint.requestBody
-                        ? ` \\\n  -d '${JSON.stringify(
-                            endpoint.requestBody,
-                            null,
-                            2
-                          )}'`
-                        : ""
-                    }`}</code>
+                            endpoint.requestBody
+                              ? ` \\\n  -d '${JSON.stringify(
+                                  endpoint.requestBody,
+                                  null,
+                                  2
+                                )}'`
+                              : ""
+                          }`}
+                    </code>
                   </pre>
                 </div>
               )}

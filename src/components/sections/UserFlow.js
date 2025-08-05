@@ -14,7 +14,6 @@ const APIFlows = ({ glowEffect }) => {
     <div className="space-y-8">  
       <div className="flex">
         <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-white/10">
-          {/* Sliding Background */}
           <div 
             className={`absolute top-1 bottom-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl shadow-lg transition-all duration-500 ease-out ${
               activeFlow === "onRamp" 
