@@ -414,6 +414,72 @@ export const apiEndpoints = {
       },
     },
 
+    // fetch all UPIs
+    {
+      id: "fetch-all-upis",
+      method: "GET",
+      path: "/v1/users/upi/fetch",
+      title: "Fetch all UPIs",
+      description: "Get all the linked UPI Ids for a customer",
+      required: [""],
+      optional: ["remember"],
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "YOUR_API_KEY",
+        Authorization: "Bearer YOUR_TOKEN",
+      },
+      requestBody: "",
+      requestBodyTypes: "",
+      response: {
+        success: true,
+        message: "success",
+        data:[ {
+          upiId: "john@doe",
+          name: "John Doe",
+          status:"SUCCESS",
+          referenceId:"d8fef079-0f0c-4182-90c3-351631247d25",
+          reason:"........"
+        }]
+      },
+    },
+
+     // fetch all Banks
+    {
+      id: "fetch-all-banks",
+      method: "GET",
+      path: "/v1/users/bank/fetch",
+      title: "Fetch all Bank Accounts",
+      description: "Get all the linked Bank Accounts for a customer",
+      required: [""],
+      optional: ["remember"],
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "YOUR_API_KEY",
+        Authorization: "Bearer YOUR_TOKEN",
+      },
+      requestBody: "",
+      requestBodyTypes: "",
+      response: {
+        success: true,
+        message: "success",
+        "data": [
+        {
+            "accountNumber": "XXXX7315",
+            "accountName": "John Doe",
+            "ifsc": "BKID0001234",
+            "referenceNumber": "ccc4f45e-6d3c-4625-8bcb-e0babea3b906",
+            "transactionId": "1353203607",
+            "tenantId": "68777a0af533c18a4cea1234",
+            "status": "SUCCESS",
+            "created_at": "2025-08-04T13:10:57.123Z",
+            "updated_at": "2025-08-04T13:11:02.221Z",
+            "verificationName": "John Doe",
+            "reason": "........"
+        }
+    ]
+      },
+    },
+
     // fetch all currencies (for merchant)
     {
       id: "fetch-currencies",
@@ -1026,6 +1092,44 @@ export const apiEndpoints = {
         error: {},
       },
     },
+
+      // fetch all Banks
+    {
+      id: "fetch-all-banks",
+      method: "GET",
+      path: "/v1/users/bank/fetch",
+      title: "Fetch all Bank Accounts",
+      description: "Get all the linked Bank Accounts for a customer",
+      required: [""],
+      optional: ["remember"],
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": "YOUR_API_KEY",
+        Authorization: "Bearer YOUR_TOKEN",
+      },
+      requestBody: "",
+      requestBodyTypes: "",
+      response: {
+        success: true,
+        message: "success",
+        "data": [
+        {
+            "accountNumber": "XXXX7315",
+            "accountName": "John Doe",
+            "ifsc": "BKID0001234",
+            "referenceNumber": "ccc4f45e-6d3c-4625-8bcb-e0babea3b906",
+            "transactionId": "1353203607",
+            "tenantId": "68777a0af533c18a4cea1234",
+            "status": "SUCCESS",
+            "created_at": "2025-08-04T13:10:57.123Z",
+            "updated_at": "2025-08-04T13:11:02.221Z",
+            "verificationName": "John Doe",
+            "reason": "........"
+        }
+    ]
+      },
+    },
+
 
     // fetch all currencies (for merchant)
     {
