@@ -14,13 +14,7 @@ const Prerequesite = () => {
               <h3 className="text-2xl font-bold text-white/80 mb-3">
                 Prerequesite
               </h3>
-              {/* <div className="flex justify-center">
-                <img
-                  src="/onmeta-complete-flow.webp"
-                  alt="OnMeta Complete Flow"
-                  className="w-[50%] h-auto rounded-lg shadow-lg"
-                />
-              </div> */}
+            
               <p className="text-white/70 text-lg">
                 To get started with the widget integration and also to avail the
                 above customisations you need to register yourselves in our
@@ -47,7 +41,7 @@ const Prerequesite = () => {
                 <ul className="ml-6 mb-4">
                   <li className="mb-4">
                     <sapn className="text-white/80 font-bold">1.</sapn> Go to
-                    the link <a href="https://dashboard.onmeta.in" target="_blank" rel="noreferrer" className="font-bold cursor-pointer text-blue-700">( prod / </a> <a href="https://stg.dashboard.onmeta.in" target="_blank" rel="noreferrer" className="font-bold cursor-pointer text-blue-700">stag )</a> to register in our dashboard. Enter your email
+                    the link <a href="https://dashboard.onmeta.in" target="_blank" rel="noreferrer" className="font-bold cursor-pointer text-green-400">( prod / </a> <a href="https://stg.dashboard.onmeta.in" target="_blank" rel="noreferrer" className="font-bold cursor-pointer text-green-400">stag )</a> to register in our dashboard. Enter your email
                     address, password (at least 8 characters long, containing at
                     least one number, one lowercase, and one uppercase letter),
                     validate captcha, and click on “Register” to proceed to the

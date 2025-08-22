@@ -454,7 +454,7 @@ export const apiEndpoints = {
     {
       id: "create-order-onramp",
       method: "POST",
-      path: "v1/orders/create",
+      path: "/v1/orders/create",
       title: "Create Order",
       description:
         "To create Onramp order. you need to link UPI ID or Bank account of the user before creating orders",
@@ -537,7 +537,7 @@ export const apiEndpoints = {
     {
       id: "update-utr",
       method: "POST",
-      path: "v1/orders/utr",
+      path: "/v1/orders/utr",
       title: "Update UTR",
       description: "Update the UTR for a given orderId",
       required: [""],
@@ -565,7 +565,7 @@ export const apiEndpoints = {
     {
       id: "order-status-onramp",
       method: "POST",
-      path: "v1/orders/status",
+      path: "/v1/orders/status",
       title: "Check Order Status",
       description: "Fetch Order Status with order ID",
       required: [""],
@@ -1069,7 +1069,7 @@ export const apiEndpoints = {
     {
       id: "create-order-offRamp-crypto",
       method: "POST",
-      path: "v1/offramp/orders/create",
+      path: "/v1/offramp/orders/create",
       title: "Create Order OffRamp - Crypto",
       description:
         "To create OffRamp order. you need to add Bank account of the user before creating orders",
@@ -1132,7 +1132,7 @@ export const apiEndpoints = {
     {
       id: "update-txnHash",
       method: "POST",
-      path: "v1/offramp/orders/txnhash",
+      path: "/v1/offramp/orders/txnhash",
       title: "Update Transaction Hash",
       description:
         "Update Transaction Hash for the offramp order so that order will be completed and fiat payout will be processed.",
@@ -1161,7 +1161,7 @@ export const apiEndpoints = {
     {
       id: "order-status-offRamp",
       method: "POST",
-      path: "v1/offramp/orders/status",
+      path: "/v1/offramp/orders/status",
       title: "Check Order Status",
       description: "Fetch Order Status with order ID",
       required: [""],

@@ -35,7 +35,7 @@ const OnrampWeb = ({
                 </li>
                 <li className="mb-4">
                   <sapn className="text-white/80 font-bold">3.</sapn> Inside{" "}
-                  <span className="font-bold text-green-500">API Setup</span>{" "}
+                  <span className="font-bold text-green-400">API Setup</span>{" "}
                   section, webhook can be added and modified under Callback
                   URL's section
                 </li>
@@ -50,7 +50,7 @@ const OnrampWeb = ({
                   </div>
                 </li>
                 <li className="mb-4">
-                  <sapn className="text-green-500 font-bold">
+                  <sapn className="text-green-400 font-bold">
                     <span className="text-white/80">5.</span> Generating HMAC
                   </sapn>{" "}
                   Signature is computed using Hash-based message authentication
@@ -60,7 +60,7 @@ const OnrampWeb = ({
                 <li className="mb-4">
                   <sapn className="text-white/80 font-bold">6.</sapn> The
                   example implementation in{" "}
-                  <sapn className="text-green-500 font-bold">Nodejs</sapn> is
+                  <sapn className="text-green-400 font-bold">Nodejs</sapn> is
                   show below ⬇️
                 </li>
 
