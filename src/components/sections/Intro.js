@@ -83,12 +83,12 @@ const Intro = () => {
                 </p>
                 <ul className="ml-6 mb-4">
                   <li>
-                    <span className="text-white/80 font-bold">1.</span> Widget
-                    Integration
+                    <span className="text-green-400 font-bold">1. Widget
+                    Integration</span> 
                   </li>
                   <li>
-                    <span className="text-white/80 font-bold">2.</span> API
-                    Integration
+                    <span className="text-green-400 font-bold">2. API
+                    Integration</span> 
                   </li>
                 </ul>
                 <p className="text-white/70 text-lg">

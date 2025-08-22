@@ -25,7 +25,7 @@ const OffRamp = ({
       <div className="flex justify-between items-center">
         <div className="flex-1">
           <p className="text-2xl text-white/80">
-            Convert cryptocurrency tokens to fiat currency{" "}
+            Convert crypto currency tokens to fiat currency{" "}
           </p>
         </div>
 
