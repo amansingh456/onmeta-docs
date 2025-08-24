@@ -1,28 +1,12 @@
-
 const FlowDiagram = ({ steps, activeStage, glowEffect }) => (
-  <div className="relative overflow-hidden rounded-3xl bg-black border-2 border-white/10 p-12 shadow-2xl">
+  <div className="relative overflow-hidden rounded-3xl bg-primary-bg border-2 border-border-secondary p-12 shadow-2xl">
     <div 
       className="absolute inset-0 opacity-20 transition-all duration-1000"
       style={{
-        background: `radial-gradient(circle at ${glowEffect.x}% ${glowEffect.y}%, #00ff88 0%, transparent 70%)`
+        background: `radial-gradient(circle at ${glowEffect.x}% ${glowEffect.y}%, var(--color-primary-accent) 0%, transparent 70%)`
       }}
     />
-    
-    <div className="absolute inset-0 overflow-hidden">
-      {[...Array(20)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 3}s`,
-            animationDuration: `${2 + Math.random() * 3}s`
-          }}
-        />
-      ))}
-    </div>
-  
+   
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
       {steps.map((step, index) => {
         const Icon = step.icon;
@@ -35,12 +19,12 @@ const FlowDiagram = ({ steps, activeStage, glowEffect }) => (
             key={step.id}
             className={`relative p-8 rounded-2xl border-2 transition-all duration-700 transform hover:scale-105 ${
               isActive 
-                ? 'border-white bg-black/80 scale-110 shadow-2xl' 
+                ? 'border-primary-text bg-bg-glass scale-110 shadow-2xl' 
                 : isPast
-                ? 'border-white/30 bg-black/40 shadow-lg'
+                ? 'border-border-primary bg-bg-secondary shadow-lg'
                 : isNext
-                ? 'border-white/20 bg-black/20 shadow-md'
-                : 'border-white/10 bg-black/10'
+                ? 'border-border-accent-subtle bg-bg-secondary/40 shadow-md'
+                : 'border-border-secondary bg-bg-surface'
             }`}
             style={{
               boxShadow: isActive 
@@ -62,10 +46,10 @@ const FlowDiagram = ({ steps, activeStage, glowEffect }) => (
             <div 
               className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 relative z-10 ${
                 isActive 
-                  ? 'bg-white text-black animate-pulse' 
+                  ? 'bg-primary-text text-black animate-pulse' 
                   : isPast 
-                  ? 'bg-white/80 text-black' 
-                  : 'bg-white/20 text-white/60'
+                  ? 'bg-primary-muted text-black' 
+                  : 'bg-primary-faint text-primary-subtle'
               }`}
               style={{
                 boxShadow: isActive ? `0 0 30px ${step.color}` : 'none'
@@ -75,12 +59,12 @@ const FlowDiagram = ({ steps, activeStage, glowEffect }) => (
             </div>
             
             <h4 className={`font-bold mb-3 text-lg transition-colors duration-300 ${
-              isActive ? 'text-white' : isPast ? 'text-white/80' : 'text-white/50'
+              isActive ? 'text-primary-text' : isPast ? 'text-primary-muted' : 'text-primary-faint'
             }`}>
               {step.title}
             </h4>
             <p className={`text-sm transition-colors duration-300 ${
-              isActive ? 'text-white/90' : isPast ? 'text-white/60' : 'text-white/40'
+              isActive ? 'text-primary-muted' : isPast ? 'text-primary-subtle' : 'text-primary-faint'
             }`}>
               {step.desc}
             </p>
@@ -89,7 +73,7 @@ const FlowDiagram = ({ steps, activeStage, glowEffect }) => (
               <div className="absolute top-1/2 -right-4 w-8 h-0.5 transform -translate-y-1/2 z-20">
                 <div 
                   className={`h-full transition-all duration-700 ${
-                    isPast ? 'bg-white' : 'bg-white/20'
+                    isPast ? 'bg-primary-text' : 'bg-border-accent-subtle'
                   }`}
                   style={{
                     boxShadow: isPast ? `0 0 10px ${step.color}` : 'none'
