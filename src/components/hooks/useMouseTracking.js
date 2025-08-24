@@ -2,12 +2,10 @@
 import { useState, useEffect } from 'react';
 
 export const useMouseTracking = (containerRef) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [glowEffect, setGlowEffect] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
       if (containerRef?.current) {
         const rect = containerRef.current.getBoundingClientRect();
         setGlowEffect({
@@ -21,5 +19,5 @@ export const useMouseTracking = (containerRef) => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, [containerRef]);
 
-  return { mousePosition, glowEffect };
+  return {  glowEffect };
 };

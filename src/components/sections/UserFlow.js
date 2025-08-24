@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import FlowDiagram from '../ui/FlowDiagram';
 import { useAnimations } from '../hooks/useAnimations';
@@ -13,9 +12,9 @@ const APIFlows = ({ glowEffect }) => {
   return (
     <div className="space-y-8">  
       <div className="flex">
-        <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-white/10">
+        <div className="relative bg-bg-secondary backdrop-blur-sm rounded-2xl border border-border-secondary">
           <div 
-            className={`absolute top-1 bottom-1 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl shadow-lg transition-all duration-500 ease-out ${
+            className={`absolute top-1 bottom-1 bg-gradient-to-r from-primary-accent to-primary-accent rounded-xl shadow-lg transition-all duration-500 ease-out ${
               activeFlow === "onRamp" 
                 ? "left-1 right-1/2" 
                 : "left-1/2 right-1"
@@ -29,7 +28,7 @@ const APIFlows = ({ glowEffect }) => {
               className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
                 activeFlow === "onRamp"
                   ? "text-black"
-                  : "text-white/70 hover:text-white"
+                  : "text-primary-muted hover:text-primary-text"
               }`}
             >
               <Code size={20} />
@@ -41,7 +40,7 @@ const APIFlows = ({ glowEffect }) => {
               className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
                 activeFlow === "offRamp"
                   ? "text-black"
-                  : "text-white/70 hover:text-white"
+                  : "text-primary-muted hover:text-primary-text"
               }`}
             >
               <Code size={20} />

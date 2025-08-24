@@ -24,7 +24,7 @@ const OffRamp = ({
     <div className="space-y-12">
       <div className="flex justify-between items-center">
         <div className="flex-1">
-          <p className="text-2xl text-white/80">
+          <p className="text-2xl text-primary-muted">
             Convert crypto currency tokens to fiat currency{" "}
           </p>
         </div>
@@ -32,7 +32,7 @@ const OffRamp = ({
         <div className="relative">
           <button
             onClick={() => setIsToggleOpen(!isToggleOpen)}
-            className="hover:bg-white/10 text-white/60 transition-all duration-300 px-6 py-3 rounded-lg border border-white/10 flex items-center gap-2 shadow-lg hover:shadow-xl"
+            className="hover:bg-bg-hover text-primary-subtle transition-all duration-300 px-6 py-3 rounded-lg border border-border-secondary flex items-center gap-2 shadow-lg hover:shadow-xl"
           >
             <span className="text-sm font-medium">Base URLs</span>
             <svg
@@ -53,7 +53,7 @@ const OffRamp = ({
           </button>
 
           <div
-            className={`absolute right-0 top-full mt-2 bg-white/10 text-white/60 border border-white/10 rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out z-10 ${
+            className={`absolute right-0 top-full mt-2 bg-bg-hover text-primary-subtle border border-border-secondary rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out z-10 ${
               isToggleOpen
                 ? "opacity-100 translate-y-0 scale-100"
                 : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
@@ -63,12 +63,12 @@ const OffRamp = ({
               <div className="space-y-3">
                 <div className="group">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold text-green-400 uppercase tracking-wide">
+                    <span className="text-xs font-semibold text-primary-accent uppercase tracking-wide">
                       Production
                     </span>
                     <button
                       onClick={() => copyUrl(baseUrls.production)}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-400 hover:text-white"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-primary-faint hover:text-primary-text"
                       title="Copy URL"
                     >
                       <svg
@@ -86,19 +86,19 @@ const OffRamp = ({
                       </svg>
                     </button>
                   </div>
-                  <div className="bg-black rounded px-3 py-2 font-mono text-sm text-gray-300 break-all">
+                  <div className="bg-primary-bg rounded px-3 py-2 font-mono text-sm text-primary-subtle break-all">
                     {baseUrls.production}
                   </div>
                 </div>
 
                 <div className="group">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold text-yellow-400 uppercase tracking-wide">
+                    <span className="text-xs font-semibold text-yellow-primary uppercase tracking-wide">
                       Staging
                     </span>
                     <button
                       onClick={() => copyUrl(baseUrls.staging)}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-gray-400 hover:text-white"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-primary-faint hover:text-primary-text"
                       title="Copy URL"
                     >
                       <svg
@@ -116,7 +116,7 @@ const OffRamp = ({
                       </svg>
                     </button>
                   </div>
-                  <div className="bg-black rounded px-3 py-2 font-mono text-sm text-gray-300 break-all">
+                  <div className="bg-primary-bg rounded px-3 py-2 font-mono text-sm text-primary-subtle break-all">
                     {baseUrls.staging}
                   </div>
                 </div>

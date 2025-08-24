@@ -2,7 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap'); */
+
+/* CSS Custom Properties for Dark Theme */
+:root {
+  /* Primary theme colors */
+  --color-primary-bg: #000000;
+  --color-primary-surface: #000000;
+  --color-primary-accent: #00ff88;
+  --color-primary-text: #ffffff;
+  --color-primary-muted: rgba(255, 255, 255, 0.7);
+  --color-primary-subtle: rgba(255, 255, 255, 0.6);
+  --color-primary-faint: rgba(255, 255, 255, 0.4);
+  
+  /* Border colors */
+  --color-border-primary: rgba(255, 255, 255, 0.15);
+  --color-border-secondary: rgba(255, 255, 255, 0.10);
+  --color-border-accent: rgba(0, 255, 136, 0.50);
+  --color-border-accent-light: rgba(0, 255, 136, 0.30);
+  --color-border-accent-subtle: rgba(0, 255, 136, 0.20);
+  
+  /* Background variations */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: rgba(0, 0, 0, 0.50);
+  --color-bg-surface: rgba(255, 255, 255, 0.05);
+  --color-bg-hover: rgba(255, 255, 255, 0.10);
+  --color-bg-glass: rgba(0, 0, 0, 0.95);
+  
+  /* Shadow colors */
+  --color-shadow-primary: rgba(255, 255, 255, 0.10);
+  --color-shadow-accent: rgba(0, 255, 136, 0.30);
+  --color-shadow-accent-light: rgba(0, 255, 136, 0.10);
+  --color-shadow-glow: rgba(0, 255, 136, 0.50);
+  
+  /* Scrollbar colors */
+  --color-scrollbar-track: rgba(255, 255, 255, 0.1);
+  --color-scrollbar-thumb: rgba(0, 255, 136, 0.3);
+  --color-scrollbar-thumb-hover: rgba(0, 255, 136, 0.5);
+}
 
 * {
   margin: 0;
@@ -11,15 +47,11 @@
 }
 
 body {
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
-  /* font-family: "Fira Sans", sans-serif; */
   font-family: "Quicksand", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--color-primary-bg);
+  color: var(--color-primary-text);
 }
 
 code {
@@ -27,20 +59,20 @@ code {
     monospace;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar using CSS variables */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 136, 0.3);
+  background: var(--color-scrollbar-thumb);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 136, 0.5);
+  background: var(--color-scrollbar-thumb-hover);
 }

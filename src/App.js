@@ -1,4 +1,3 @@
-// src/App.js
 import { useState, useRef } from 'react';
 import Navigation from './components/common/Navigation';
 import Sidebar from './components/common/Sidebar';
@@ -74,7 +73,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-primary-bg text-primary-text overflow-x-hidden">
       <Navigation
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
