@@ -13,10 +13,10 @@ const Intro = () => {
 
   const LoadingPlaceholder = ({ className }) => (
     <div
-      className={`${className} bg-bg-surface rounded-lg animate-pulse flex items-center justify-center relative overflow-hidden`}
+      className={`${className} rounded-lg animate-pulse flex items-center justify-center relative overflow-hidden`}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-border-secondary to-transparent -skew-x-12 animate-shimmer"></div>
-      <div className="w-8 h-8 border-2 border-border-secondary border-t-primary-subtle rounded-full animate-spin"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-border-light-accent dark:via-border-primary-accent to-transparent -skew-x-12 animate-shimmer"></div>
+      <div className="w-8 h-8 border-2 border-light-brdr dark:border-primary-brdr rounded-full animate-spin"></div>
       <style jsx>{`
         @keyframes shimmer {
           0% {
@@ -35,8 +35,8 @@ const Intro = () => {
 
   return (
     <div className="space-y-12">
-      <div className="space-y-6 border-red-500">
-        <div className="p-8 rounded-3xl border-2 border-border-primary bg-primary-bg hover:border-border-accent-light transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
+      <div className="space-y-6">
+        <div className="p-8 rounded-3xl border border-light-brdr dark:border-primary-brdr bg-light-surface dark:bg-primary-surface hover:border-light-accent dark:hover:border-primary-accent transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"
             style={{
@@ -45,7 +45,7 @@ const Intro = () => {
           />
           <div className="flex items-center justify-between relative z-10">
             <div>
-              <h3 className="text-2xl font-bold text-primary-text mb-3">
+              <h3 className="text-2xl font-bold text-light-text dark:text-primary-text mb-3">
                 Main Flow
               </h3>
               <div className="flex justify-center">
@@ -64,7 +64,7 @@ const Intro = () => {
           </div>
         </div>
 
-        <div className="p-8 rounded-3xl border-2 border-border-primary bg-primary-bg hover:border-border-accent-light transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
+        <div className="p-8 rounded-3xl border border-light-brdr dark:border-primary-brdr bg-light-surface dark:bg-primary-surface hover:border-light-accent dark:hover:border-primary-accent transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"
             style={{
@@ -73,25 +73,25 @@ const Intro = () => {
           />
           <div className="flex items-center justify-between relative z-10">
             <div>
-              <h3 className="text-2xl font-bold text-primary-text mb-4">
+              <h3 className="text-2xl font-bold text-light-text dark:text-primary-text mb-4">
                 Integrations Supported
               </h3>
               <div>
-                <p className="text-primary-muted text-lg mb-2">
+                <p className="text-light-textSec dark:text-primary-textSec text-lg mb-2">
                   We support the following integration methods for our services
                   i.e. both On and Off Ramp.
                 </p>
                 <ul className="ml-6 mb-4">
                   <li>
-                    <span className="text-primary-accent font-bold">1. Widget
+                    <span className="text-light-accent dark:text-primary-accent font-bold">1. Widget
                     Integration</span> 
                   </li>
                   <li>
-                    <span className="text-primary-accent font-bold">2. API
+                    <span className="text-light-accent dark:text-primary-accent  font-bold">2. API
                     Integration</span> 
                   </li>
                 </ul>
-                <p className="text-primary-muted text-lg">
+                <p className="text-light-textSec dark:text-primary-textSec text-lg">
                   In this document we will be discussing in detail the steps
                   needed for widget integration in test module and then how to
                   take the widget live. Before we dive into the integration
@@ -103,7 +103,7 @@ const Intro = () => {
           </div>
         </div>
 
-        <div className="p-8 rounded-3xl border-2 border-border-primary bg-primary-bg hover:border-border-accent-light transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
+        <div className="p-8 rounded-3xl border border-light-brdr dark:border-primary-brdr bg-light-surface dark:bg-primary-surface hover:border-light-accent dark:hover:border-primary-accent transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"
             style={{
@@ -112,7 +112,7 @@ const Intro = () => {
           />
           <div className="flex items-center justify-between relative z-10">
             <div>
-              <h3 className="text-2xl font-bold text-primary-text mb-4">
+              <h3 className="text-2xl font-bold text-light-text dark:text-primary-text mb-4">
                 Fiat Currency Supported
               </h3>
               <div className="flex justify-around">
@@ -155,7 +155,7 @@ const Intro = () => {
           </div>
         </div>
 
-        <div className="p-8 rounded-3xl border-2 border-border-primary bg-primary-bg hover:border-border-accent-light transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
+        <div className="p-8 rounded-3xl border border-light-brdr dark:border-primary-brdr bg-light-surface dark:bg-primary-surface hover:border-light-accent dark:hover:border-primary-accent transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"
             style={{
@@ -164,11 +164,11 @@ const Intro = () => {
           />
           <div className="flex items-center justify-between relative z-10">
             <div>
-              <h3 className="text-2xl font-bold text-primary-text mb-4">
+              <h3 className="text-2xl font-bold text-light-text dark:text-primary-text mb-4">
                 Supported Blockchain Networks
               </h3>
               <div className="flex justify-center">
-                <p className="text-primary-muted text-lg mb-6">
+                <p className="text-light-textSec dark:text-primary-textSec text-lg mb-6">
                   Builders' building any dApp on our supported blockchain
                   networks can integrate Onmeta to easily On/Off Ramp their
                   users. Our solution is curated for Crypto wallets, Gaming
@@ -227,7 +227,7 @@ const Intro = () => {
           </div>
         </div>
 
-        <div className="p-8 rounded-3xl border-2 border-border-primary bg-primary-bg hover:border-border-accent-light transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
+        <div className="p-8 rounded-3xl border border-light-brdr dark:border-primary-brdr bg-light-surface dark:bg-primary-surface hover:border-light-accent dark:hover:border-primary-accent transition-all duration-500 hover:shadow-2xl group relative overflow-hidden">
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"
             style={{
@@ -236,37 +236,37 @@ const Intro = () => {
           />
           <div className="flex items-center justify-between relative z-10">
             <div>
-              <h3 className="text-2xl font-bold text-primary-text mb-4">
+              <h3 className="text-2xl font-bold text-light-text dark:text-primary-text mb-4">
                 Customizations Possible for Widget Integration.
               </h3>
-              <div className="text-primary-muted">
+              <div className="text-light-textSec dark:text-primary-textSec ">
                 <ul className="ml-6 mb-4">
                   <li>
-                    <span className="text-primary-text font-bold">1.</span> You can
+                    <span className="font-bold">1.</span> You can
                     choose to have either On ramp or Off ramp or both
                   </li>
                   <li>
-                    <span className="text-primary-text font-bold">2.</span> You can
+                    <span className="font-bold">2.</span> You can
                     choose to use Onmeta's KYC module or integrate with your own
                     KYC
                   </li>
                   <li>
-                    <span className="text-primary-text font-bold">3.</span> You can
+                    <span className="font-bold">3.</span> You can
                     choose to customize the fiat currencies and tokens that list
                     in your widget
                   </li>
                   <li>
-                    <span className="text-primary-text font-bold">4.</span> You can
+                    <span className="font-bold">4.</span> You can
                     choose whether the user has to go through an email
                     verification in our widget or not by choosing whether to
                     pass the email ID of the user or not
                   </li>
                   <li>
-                    <span className="text-primary-text font-bold">5.</span> You can
+                    <span className="font-bold">5.</span> You can
                     choose the payment channels that you would like to use
                   </li>
                   <li>
-                    <span className="text-primary-text font-bold">6.</span> You can
+                    <span className="font-bold">6.</span> You can
                     choose the color theme of the widget from light and dark
                     [WIP]
                   </li>

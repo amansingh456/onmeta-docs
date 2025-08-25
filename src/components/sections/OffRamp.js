@@ -24,7 +24,7 @@ const OffRamp = ({
     <div className="space-y-12">
       <div className="flex justify-between items-center">
         <div className="flex-1">
-          <p className="text-2xl text-primary-muted">
+          <p className="text-2xl text-light-text dark:text-primary-text">
             Convert crypto currency tokens to fiat currency{" "}
           </p>
         </div>
@@ -32,7 +32,7 @@ const OffRamp = ({
         <div className="relative">
           <button
             onClick={() => setIsToggleOpen(!isToggleOpen)}
-            className="hover:bg-bg-hover text-primary-subtle transition-all duration-300 px-6 py-3 rounded-lg border border-border-secondary flex items-center gap-2 shadow-lg hover:shadow-xl"
+            className="text-light-textSec dark:text-primary-textSec transition-all duration-300 px-6 py-3 rounded-lg border border-light-brdr dark:border-primary-brdr flex items-center gap-2 shadow-lg hover:shadow-xl bg-light-surface dark:bg-primary-surface hover:border-light-accent dark:hover:border-primary-accent"
           >
             <span className="text-sm font-medium">Base URLs</span>
             <svg
@@ -53,7 +53,7 @@ const OffRamp = ({
           </button>
 
           <div
-            className={`absolute right-0 top-full mt-2 bg-bg-hover text-primary-subtle border border-border-secondary rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out z-10 ${
+            className={`absolute right-0 top-full mt-2 bg-light-surface dark:bg-primary-surface border border-light-brdr dark:border-primary-brdr rounded-lg shadow-xl overflow-hidden transition-all duration-300 ease-out z-10 ${
               isToggleOpen
                 ? "opacity-100 translate-y-0 scale-100"
                 : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
@@ -63,12 +63,12 @@ const OffRamp = ({
               <div className="space-y-3">
                 <div className="group">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold text-primary-accent uppercase tracking-wide">
+                    <span className="text-xs font-semibold text-light-accent dark:text-primary-accent uppercase tracking-wide">
                       Production
                     </span>
                     <button
                       onClick={() => copyUrl(baseUrls.production)}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-primary-faint hover:text-primary-text"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-light-text dark:text-primary-text hover:text-light-accent dark:hover:text-primary-accent "
                       title="Copy URL"
                     >
                       <svg
@@ -86,19 +86,19 @@ const OffRamp = ({
                       </svg>
                     </button>
                   </div>
-                  <div className="bg-primary-bg rounded px-3 py-2 font-mono text-sm text-primary-subtle break-all">
+                  <div className="bg-light-bg dark:bg-primary-bg rounded px-3 py-2 font-mono text-sm text-light-textSec dark:text-primary-textSec break-all border border-light-brdr dark:border-primary-brdr">
                     {baseUrls.production}
                   </div>
                 </div>
 
                 <div className="group">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-xs font-semibold text-yellow-primary uppercase tracking-wide">
+                    <span className="text-xs font-semibold text-yellow-400 uppercase tracking-wide">
                       Staging
                     </span>
                     <button
                       onClick={() => copyUrl(baseUrls.staging)}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-primary-faint hover:text-primary-text"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-light-text dark:text-primary-text hover:text-light-accent dark:hover:text-primary-accent"
                       title="Copy URL"
                     >
                       <svg
@@ -116,7 +116,7 @@ const OffRamp = ({
                       </svg>
                     </button>
                   </div>
-                  <div className="bg-primary-bg rounded px-3 py-2 font-mono text-sm text-primary-subtle break-all">
+                  <div className="bg-light-bg dark:bg-primary-bg rounded px-3 py-2 font-mono text-sm text-light-textSec dark:text-primary-textSec break-all border border-light-brdr dark:border-primary-brdr">
                     {baseUrls.staging}
                   </div>
                 </div>

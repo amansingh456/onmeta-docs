@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Navigation from './components/common/Navigation';
 import Sidebar from './components/common/Sidebar';
 import Home from './components/sections/Home';
@@ -6,20 +7,18 @@ import APIFlows from './components/sections/UserFlow';
 import OnRamp from './components/sections/OnRamp';
 import OffRamp from './components/sections/OffRamp';
 import Webhooks from './components/sections/Webhooks';
-import { useMouseTracking } from './components/hooks/useMouseTracking';
 import { sections } from './data/sections';
 import Prerequesite from './components/sections/Prerequesite';
 import Intro from './components/sections/Intro';
 import Kyc from './components/sections/Kyc';
 
-const App = () => {
+const AppContent = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedEndpoints, setExpandedEndpoints] = useState({});
   const [activeTab, setActiveTab] = useState({});
   
   const containerRef = useRef(null);
-  const { mousePosition, glowEffect } = useMouseTracking(containerRef);
 
   const toggleEndpoint = (endpointId) => {
     setExpandedEndpoints(prev => ({
@@ -41,7 +40,6 @@ const App = () => {
 
   const renderActiveSection = () => {
     const commonProps = {
-      glowEffect,
       expandedEndpoints,
       activeTab,
       toggleEndpoint,
@@ -73,26 +71,34 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-primary-bg text-primary-text overflow-x-hidden">
+    <div className="min-h-screen bg-light-bg dark:bg-primary-bg overflow-x-hidden">
       <Navigation
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
 
-      <div className="flex pt-20">
+      <div className="flex pt-20 bg-light-bg dark:bg-primary-bg">
         <Sidebar
           sections={sections}
           activeSection={activeSection}
           setActiveSection={setActiveSection}
         />
 
-        <div className={`flex-1 ml-80 transition-all duration-300`}>
-          <div className="max-w-6xl mx-auto p-8" ref={containerRef}>
+        <div className={`flex-1 ml-80 transition-all duration-300 bg-light-bg dark:bg-primary-bg`}>
+          <div className="max-w-6xl mx-auto p-8 bg-light-bg dark:bg-primary-bg" ref={containerRef}>
             {renderActiveSection()}
           </div>
         </div>
       </div>
     </div>
+  );
+};
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
 
