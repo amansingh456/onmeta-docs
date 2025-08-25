@@ -5,46 +5,76 @@
 
 /* CSS Custom Properties for Dark Theme */
 :root {
-  /* Primary theme colors */
-  --color-primary-bg: #000000;
-  --color-primary-surface: #000000;
-  --color-primary-accent: #00ff88;
-  --color-primary-text: #ffffff;
-  --color-primary-muted: rgba(255, 255, 255, 0.7);
-  --color-primary-subtle: rgba(255, 255, 255, 0.6);
-  --color-primary-faint: rgba(255, 255, 255, 0.4);
+  /* Light theme - Shadow colors */
+  --color-shadow-primary: rgba(0, 0, 0, 0.10);
+  --color-shadow-accent: rgba(0, 255, 136, 0.30);
+  --color-shadow-accent-light: rgba(0, 255, 136, 0.10);
+  --color-shadow-glow: rgba(0, 255, 136, 0.50);
   
-  /* Border colors */
-  --color-border-primary: rgba(255, 255, 255, 0.15);
-  --color-border-secondary: rgba(255, 255, 255, 0.10);
-  --color-border-accent: rgba(0, 255, 136, 0.50);
-  --color-border-accent-light: rgba(0, 255, 136, 0.30);
-  --color-border-accent-subtle: rgba(0, 255, 136, 0.20);
-  
-  /* Background variations */
-  --color-bg-primary: #000000;
-  --color-bg-secondary: rgba(0, 0, 0, 0.50);
-  --color-bg-surface: rgba(255, 255, 255, 0.05);
-  --color-bg-hover: rgba(255, 255, 255, 0.10);
-  --color-bg-glass: rgba(0, 0, 0, 0.95);
-  
-  /* Shadow colors */
+  /* Light theme - Scrollbar colors (white/light) */
+  --color-scrollbar-track: rgba(0, 0, 0, 0.05);
+  --color-scrollbar-thumb: rgba(0, 0, 0, 0.2);
+  --color-scrollbar-thumb-hover: rgba(0, 0, 0, 0.35);
+}
+
+
+
+.dark {
+  /* Dark theme - Shadow colors */
   --color-shadow-primary: rgba(255, 255, 255, 0.10);
   --color-shadow-accent: rgba(0, 255, 136, 0.30);
   --color-shadow-accent-light: rgba(0, 255, 136, 0.10);
   --color-shadow-glow: rgba(0, 255, 136, 0.50);
   
-  /* Scrollbar colors */
+  /* Dark theme - Scrollbar colors (black/dark) */
   --color-scrollbar-track: rgba(255, 255, 255, 0.1);
-  --color-scrollbar-thumb: rgba(0, 255, 136, 0.3);
-  --color-scrollbar-thumb-hover: rgba(0, 255, 136, 0.5);
+  --color-scrollbar-thumb: rgba(255, 255, 255, 0.3);
+  --color-scrollbar-thumb-hover: rgba(255, 255, 255, 0.5);
+
+  --glow-accent: var(--color-primary-accent);
 }
+
+/* Scrollbar styling for webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar-thumb);
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-scrollbar-track);
+}
+
+
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+   scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 }
+
+/* Firefox scrollbar styling */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+}
+
 
 body {
   font-family: "Quicksand", sans-serif;
@@ -54,25 +84,9 @@ body {
   color: var(--color-primary-text);
 }
 
+
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
 }
 
-/* Custom scrollbar using CSS variables */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-scrollbar-track);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-scrollbar-thumb);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-scrollbar-thumb-hover);
-}

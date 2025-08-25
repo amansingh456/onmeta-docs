@@ -14,15 +14,15 @@ const Webhooks = ({
   return (
     <div className="space-y-6">
       <div className="flex-1">
-        <p className="text-2xl text-primary-text">
+        <p className="text-2xl text-light-text dark:text-primary-text">
           Real-time notifications for transaction updates
         </p>
       </div>
 
       <div className="flex">
-        <div className="relative bg-bg-secondary backdrop-blur-sm rounded-2xl border border-border-secondary">
+        <div className="relative bg-light-surface dark:bg-primary-surface backdrop-blur-sm rounded-2xl border border-light-brdr dark:border-primary-brdr shadow-lg">
           <div 
-            className={`absolute top-1 bottom-1 bg-gradient-to-r from-primary-accent to-primary-accent rounded-xl shadow-lg transition-all duration-500 ease-out ${
+             className={`absolute top-1 bottom-1 text-light-bg dark:text-primary-bg bg-gradient-to-r from-light-accent to-light-accent dark:from-primary-accent dark:to-primary-accent rounded-xl shadow-lg transition-all duration-500 ease-out ${
               activeFlow === "onRamp" 
                 ? "left-1 right-1/2" 
                 : "left-1/2 right-1"
@@ -35,8 +35,8 @@ const Webhooks = ({
               onClick={() => setActiveFlow("onRamp")}
               className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
                 activeFlow === "onRamp"
-                  ? "text-primary-bg"
-                  : "text-primary-muted hover:text-primary-text"
+                  ? "text-light-bg dark:text-primary-bg"
+                  : " text-light-text dark:text-light-bg"
               }`}
             >
               <Code size={20} />
@@ -47,8 +47,8 @@ const Webhooks = ({
               onClick={() => setActiveFlow("offRamp")}
               className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
                 activeFlow === "offRamp"
-                  ? "text-primary-bg"
-                  : "text-primary-muted hover:text-primary-text"
+                  ? "text-light-bg dark:text-primary-bg"
+                  : " text-light-text dark:text-light-bg"
               }`}
             >
               <Code size={20} />

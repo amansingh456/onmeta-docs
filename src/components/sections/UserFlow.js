@@ -5,16 +5,16 @@ import { onRampSteps } from '../../data/constants';
 import { Code } from 'lucide-react';
 import { offRampSteps } from '../../data/constants';
 
-const APIFlows = ({ glowEffect }) => {
+const APIFlows = () => {
   const { animationStage } = useAnimations();
   const [activeFlow, setActiveFlow] = useState('onRamp');
 
   return (
-    <div className="space-y-8">  
+    <div className="space-y-8 bg-light-bg dark:bg-primary-bg">  
       <div className="flex">
-        <div className="relative bg-bg-secondary backdrop-blur-sm rounded-2xl border border-border-secondary">
+        <div className="relative bg-light-surface dark:bg-primary-surface backdrop-blur-sm rounded-2xl border border-light-brdr dark:border-primary-brdr shadow-lg">
           <div 
-            className={`absolute top-1 bottom-1 bg-gradient-to-r from-primary-accent to-primary-accent rounded-xl shadow-lg transition-all duration-500 ease-out ${
+            className={`absolute top-1 bottom-1 text-light-bg dark:text-primary-bg bg-gradient-to-r from-light-accent to-light-accent dark:from-primary-accent dark:to-primary-accent rounded-xl shadow-lg transition-all duration-500 ease-out ${
               activeFlow === "onRamp" 
                 ? "left-1 right-1/2" 
                 : "left-1/2 right-1"
@@ -27,8 +27,8 @@ const APIFlows = ({ glowEffect }) => {
               onClick={() => setActiveFlow("onRamp")}
               className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
                 activeFlow === "onRamp"
-                  ? "text-black"
-                  : "text-primary-muted hover:text-primary-text"
+                  ? "text-light-bg dark:text-primary-bg"
+                  : " text-light-text dark:text-light-bg"
               }`}
             >
               <Code size={20} />
@@ -39,8 +39,8 @@ const APIFlows = ({ glowEffect }) => {
               onClick={() => setActiveFlow("offRamp")}
               className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 flex items-center space-x-3 z-10 ${
                 activeFlow === "offRamp"
-                  ? "text-black"
-                  : "text-primary-muted hover:text-primary-text"
+                   ? "text-light-bg dark:text-primary-bg"
+                  : " text-light-text dark:text-light-bg"
               }`}
             >
               <Code size={20} />
@@ -55,7 +55,7 @@ const APIFlows = ({ glowEffect }) => {
         <FlowDiagram 
           steps={onRampSteps} 
           activeStage={animationStage} 
-          glowEffect={glowEffect} 
+
         />
       )}
       
@@ -63,11 +63,10 @@ const APIFlows = ({ glowEffect }) => {
         <FlowDiagram 
           steps={offRampSteps} 
           activeStage={animationStage} 
-          glowEffect={glowEffect} 
         />
       )}
     </div>
   );
 };
 
-export default APIFlows;
+export default APIFlows; 
