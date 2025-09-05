@@ -29,6 +29,9 @@ export const apiEndpoints = {
         },
         error: {},
       },
+      responseFalse :{
+        
+      }
     },
 
     // login(with refreshTok)
@@ -92,7 +95,7 @@ export const apiEndpoints = {
     {
       id: "chain-wise-limits",
       method: "GET",
-      path: "/v1/orders/chain_limits",
+      path: "/v1/orders/get-chain-limit",
       title: "Get chain wise limits",
       description: "Fetch chain wise Min/Max fiat limits for your apiKey",
       required: [""],
@@ -839,7 +842,7 @@ export const apiEndpoints = {
     {
       id: "chain-wise-limits",
       method: "GET",
-      path: "/v1/orders/chain_limits",
+      path: "/v1/orders/get-chain-limit",
       title: "Get chain wise limits",
       description: "Fetch chain wise Min/Max fiat limits for your apiKey",
       required: [""],
